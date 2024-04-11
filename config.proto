@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "my.go/grpc";
+
+service Service {
+    rpc Exchange(Request) returns (Response) {}
+}
+
+message Request {
+    string reqData = 1;
+}
+
+message Response {
+    string resData = 1;
+}
