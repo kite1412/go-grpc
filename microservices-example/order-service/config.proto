@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "my.go/microservices/service/order";
+
+service OrderService {
+    rpc CreateOrder (OrderRequest) returns (OrderResponse) {}
+}
+
+message Item {
+    string name = 1;
+    repeated string additions = 2;
+}
+
+message OrderRequest {
+    string username = 1;
+    int64 quantiity = 2;
+    Item item = 3;
+}
+
+enum Status {
+    SUCCESS = 0;
+    FAIL = 1;
+}
+
+message OrderResponse {
+    Status status = 1;
+    Item detail = 2;
+}
